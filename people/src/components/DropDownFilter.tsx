@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Select from "react-select";
 
+import { DropDownFilterStyle } from "./styles/DropDownFilter";
+
 type Props = {
     elements: string[];
 }
@@ -23,8 +25,7 @@ class DropDownFilter extends Component<Props, any> {
   }
 
   public render() {
-    const { options } = this.state;
-    const { elements } = this.state;
+    const { options, elements } = this.state;
 
     return (
         <div>
@@ -32,10 +33,12 @@ class DropDownFilter extends Component<Props, any> {
               isMulti
               value = {options}
               onChange={this.handleChange}
-              options={elements.map((option: string) => ({
-                label: option,
-                value: option,
-            }))}
+              options={elements.map((option: string) => (
+                {
+                  label: option,
+                  value: option,
+                }))
+              }
             />
         </div>
     );
